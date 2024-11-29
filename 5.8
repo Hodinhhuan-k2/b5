@@ -1,0 +1,32 @@
+print("Hồ Đình Huân")
+print("MSSV:235752021610049")
+def Sequential_Search(dlist, item):
+    """Hàm tìm kiếm tuyến tính trong danh sách
+    dlist: Danh sách các phần tử
+    item: Phần tử cần tìm
+    Returns: tuple: (True, index) nếu tìm thấy, (False, -1) nếu không tìm thấy
+    """
+    for i in range(len(dlist)):
+        if dlist[i] == item:
+            return True, i
+    return False, -1
+
+# Nhập số lượng phần tử
+n = int(input("Nhập số lượng phần tử: "))
+dlist = []
+
+# Nhập các phần tử vào danh sách
+for i in range(n):
+    dlist.append(int(input(f"Nhập phần tử thứ {i+1}: ")))
+
+# Nhập phần tử cần tìm
+item = int(input("Nhập phần tử cần tìm: "))
+
+# Gọi hàm Sequential_Search
+result, index = Sequential_Search(dlist, item)
+
+# Kiểm tra kết quả tìm kiếm
+if result:
+    print(f"Tìm thấy {item} tại vị trí {index}")
+else:
+    print(f"Không tìm thấy {item}")
