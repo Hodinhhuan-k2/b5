@@ -1,0 +1,29 @@
+print("Hồ Đình Huân")
+print("MSSV:235752021610049")
+def binary_search(item_list, item):
+    # Khởi tạo các chỉ số ban đầu
+    first = 0
+    last = len(item_list) - 1
+    found = False
+    
+    # Tiến hành tìm kiếm trong khi vẫn còn khoảng tìm kiếm hợp lệ
+    while first <= last and not found:
+        mid = (first + last) // 2  # Tính chỉ số giữa
+        if item_list[mid] == item:  # Nếu tìm thấy phần tử tại giữa
+            found = True
+        elif item_list[mid] < item:  # Nếu phần tử cần tìm lớn hơn phần tử giữa
+            first = mid + 1  # Loại bỏ phần nửa bên trái
+        else:  # Nếu phần tử cần tìm nhỏ hơn phần tử giữa
+            last = mid - 1  # Loại bỏ phần nửa bên phải
+    
+    # Trả về kết quả
+    if found:
+        return f"Phần tử {item} được tìm thấy tại vị trí {mid}"
+    else:
+        return f"Phần tử {item} không có trong danh sách"
+
+# Ví dụ sử dụng
+item_list = [10, 20, 30, 40, 50, 60, 70, 80, 90]
+item = int(input("Nhập phần tử cần tìm: "))
+result = binary_search(item_list, item)
+print(result)
