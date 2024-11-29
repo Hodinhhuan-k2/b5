@@ -1,0 +1,36 @@
+print("Hồ Đình Huân")
+print("MSSV:235752021610049")
+import random
+
+# Tạo danh sách ngẫu nhiên có n phần tử
+def create_list(n):
+    """Tạo một danh sách ngẫu nhiên có n phần tử"""
+    return [random.randint(1, 100) for _ in range(n)]
+
+# Tìm vị trí của phần tử lớn nhất và nhỏ nhất trong danh sách
+def find_max_min_index(lst):
+    """Tìm vị trí của phần tử lớn nhất và nhỏ nhất trong danh sách"""
+    max_value = max(lst)
+    min_value = min(lst)
+    max_index = lst.index(max_value)
+    min_index = lst.index(min_value)
+    return max_value, max_index, min_value, min_index
+
+# Hàm main
+def main():
+    # Nhập số lượng phần tử của danh sách
+    n = int(input("Nhập số lượng phần tử của danh sách: "))
+    
+    # Tạo danh sách ngẫu nhiên
+    my_list = create_list(n)
+    print("Danh sách ban đầu:", my_list)
+    
+    # Tìm phần tử lớn nhất, nhỏ nhất và vị trí của chúng
+    max_value, max_index, min_value, min_index = find_max_min_index(my_list)
+    
+    # In kết quả
+    print(f"Phần tử lớn nhất: {max_value}, tại vị trí {max_index}")
+    print(f"Phần tử nhỏ nhất: {min_value}, tại vị trí {min_index}")
+
+# Chạy chương trình
+main()
