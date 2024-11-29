@@ -1,0 +1,25 @@
+print("Hồ Đình Huân")
+print("MSSV:235752021610049")
+import numpy as np
+
+# Dữ liệu đầu vào
+student_id = [1023, 5202, 6230, 1671, 1682, 5241, 4532]
+student_height = [40., 42., 45., 41., 38., 40., 42.0]
+
+# Chuyển đổi dữ liệu thành mảng NumPy
+student_id = np.array(student_id)
+student_height = np.array(student_height)
+
+# Sử dụng lexsort để sắp xếp theo chiều cao và id sinh viên
+# Lưu ý rằng lexsort sẽ sắp xếp theo thứ tự các mảng đã cho từ phải sang trái
+indices = np.lexsort((student_id, student_height))
+
+# In chỉ số mô tả thứ tự sắp xếp
+print("Chỉ số:")
+print(indices)
+
+# In dữ liệu sắp xếp (theo thứ tự id và chiều cao)
+sorted_data = list(zip(student_id[indices], student_height[indices]))
+print("Dữ liệu sắp xếp:")
+for item in sorted_data:
+    print(item[0], item[1])
